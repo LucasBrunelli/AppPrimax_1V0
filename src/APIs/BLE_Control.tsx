@@ -6,6 +6,10 @@ const managerBLE = new BleManager();
 
 
 
+// Utilizar biblitoeca BLE (Bluetooth Low Energy) cmd = npm install --save react-native-ble-plx   
+// Utilizar biblitoeca de tratamento de dados 64b cmd = npm install react-native-base64
+// Documentação para biblioteca Bluetooth Low Energy  = https://www.npmjs.com/package/react-native-ble-plx
+
 const useBLEManager = () => {
 
     

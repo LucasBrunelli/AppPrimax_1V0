@@ -8,7 +8,6 @@ import {
     ScrollView,
     TouchableOpacity,
     FlatList,
-    PermissionsAndroid, Platform
 } from 'react-native';
 import useBLEManager from './src/APIs/BLE_Control';
 
