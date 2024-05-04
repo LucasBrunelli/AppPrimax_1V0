@@ -53,10 +53,11 @@ const App: React.FC = () => {  // Componete Principal
         <ScrollView ref={scrollViewRef} style={{flex: 1}} scrollEnabled={true} keyboardShouldPersistTaps="always">
         <View style={styles.MainView}>
 
-
+            {/* Potão para escanear dispostivos diponiveis */}
             <Button title={BtnScanning ? 'Scanning...' : 'Scan Devices'} onPress={BleScan} disabled={BtnScanning} />
 
 
+            {/* Lista de dispositivos disponiveis */}
             <View 
             style={{height: 120, width: '90%', marginTop: 20, backgroundColor: '#FFF', borderWidth: 1, borderColor: 'gray', borderRadius: 20}}>
             <ScrollView style={{flex:1, margin:7}} scrollEnabled={true} nestedScrollEnabled={true}>
@@ -76,21 +77,19 @@ const App: React.FC = () => {  // Componete Principal
             </View>
 
 
-
+            {/* Caixas de texto com renderização otimizada */}
             <TextInputOptimized value={SpeedNotify} />
-
             <TextInputOptimized value={PowerNotify} />
-
             <TextInputOptimized value={BatteryNotify} />
-
             <TextInputOptimized value={DevNameConect + "    id: " + DevIdConnected} />   
 
 
-
+            {/* Campo para envio de dados */}    
             <View style={{height: 50, width: '90%', marginTop: 20, marginBottom:20, flexDirection: 'row'}}>  
 
+                {/* Caixa de texto com renderização otimizada */}
                 <TextBoxOptimized initialValue={BleMsgToSend} setValue={setBleMsgToSend} />
-                
+                {/* Botão de envio com renderização otimizada */}     
                 <OptimizedButton onPress={() => BleSend(BleMsgToSend)} />
 
             </View>

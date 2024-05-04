@@ -88,8 +88,9 @@ const useBLEManager = () => {
         console.log("Tentando conectar com id = " + dev.id);
         if (DevIdConnected == '') {
             try {
-                const device = await managerBLE.connectToDevice(dev.id);   
-                await device.discoverAllServicesAndCharacteristics();
+                const device = await managerBLE.connectToDevice(dev.id);  // Conetcta com o dispositivo            
+                await device.discoverAllServicesAndCharacteristics();     // Descobre todos serviços e caracteristicas
+                await device.requestMTU(128);                             // Define MTU = 128 bytes (Maximum Transmission Unit)
                 set_DevIdConnected(dev.id);
                 set_DevNameConect(dev.name || '');            
 
@@ -155,8 +156,7 @@ const useBLEManager = () => {
     
 
 
-    // Função para enviar dados para bicicleta.
-    // Devido a uma limitação de hardware, só é possivel, enviar uma string de no maixmo 20 caracteres.
+    // Função para enviar uma string de no maixmo 128 caracteres para bicicleta.
     async function BleSend(dataSend: string) {
         try {
             const characteristic = await managerBLE.writeCharacteristicWithoutResponseForDevice(
